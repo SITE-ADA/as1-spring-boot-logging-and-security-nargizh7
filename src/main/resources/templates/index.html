@@ -200,12 +200,15 @@
 </table>
 
 <!-- Pagination Links -->
+<!-- Pagination Section -->
 <div>
-    <span th:each="pageNum : ${#numbers.sequence(1, totalPages)}">
+    <span th:each="pageNum : ${#numbers.sequence(1, totalPages ?: 1)}">
         <a th:if="${pageNum != currentPage}" th:href="@{'/movie/list?pageNo=' + ${pageNum}}" th:text="${pageNum}"></a>
         <span th:if="${pageNum == currentPage}" th:text="${pageNum}"></span>
     </span>
 </div>
+
+
 
 <div class="page-info">
     <a th:href="@{/}">Logout</a>

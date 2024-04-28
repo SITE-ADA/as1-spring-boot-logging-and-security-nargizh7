@@ -28,15 +28,16 @@ public class MovieController {
         Page<MovieDto> moviesPage = movieService.listDto(pageNo, sortField, sortDir, filterField, filterValue);
         model.addAttribute("movies", moviesPage.getContent());
         model.addAttribute("currentPage", pageNo);
-        model.addAttribute("totalPages", moviesPage.getTotalPages());
+        model.addAttribute("totalPages", moviesPage.getTotalPages()); // Ensure this is not null
         model.addAttribute("totalElements", moviesPage.getTotalElements());
         model.addAttribute("sortField", sortField);
         model.addAttribute("sortDir", sortDir);
         model.addAttribute("filterField", filterField);
         model.addAttribute("filterValue", filterValue);
 
-        return "index"; // Changed from "/index" to "index"
+        return "index";
     }
+
 
     @GetMapping("/new")
     public String createNewMovie(Model model) {
