@@ -4,72 +4,73 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Create a New Movie</title>
-    body {
-    font-family: 'Arial', sans-serif;
-    background: linear-gradient(145deg, #0A0F0D, #004A7F), url('https://c4.wallpaperflare.com/wallpaper/862/449/162/jack-reacher-star-wars-interstellar-movie-john-wick-wallpaper-preview.jpg');
-    background-size: cover;
-    background-attachment: fixed;
-    font-size: 16px;
-    margin: 0 auto;
-    color: #E8E9EB;
-    }
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(145deg, #0A0F0D, #004A7F), url('https://c4.wallpaperflare.com/wallpaper/862/449/162/jack-reacher-star-wars-interstellar-movie-john-wick-wallpaper-preview.jpg');
+            background-size: cover;
+            background-attachment: fixed;
+            font-size: 16px;
+            margin: 0 auto;
+            color: #E8E9EB;
+        }
 
-    h2 {
-    text-align: center;
-    color: #FFD700;
-    font-size: 2.5em;
-    text-shadow: 2px 2px 4px #000;
-    }
+        h2 {
+            text-align: center;
+            color: #FFD700;
+            font-size: 2.5em;
+            text-shadow: 2px 2px 4px #000;
+        }
 
-    .page-info {
-    margin-top: 100px;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    }
+        .page-info {
+            margin-top: 100px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
 
-    input[type="text"] {
-    width: calc(100% - 24px);
-    padding: 10px;
-    margin-bottom: 20px;
-    border: 1px solid #4AD9D9;
-    border-radius: 5px;
-    background: rgba(255, 255, 255, 0.1);
-    color: #E8E9EB;
-    }
+        input[type="text"] {
+            width: calc(100% - 24px);
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #4AD9D9;
+            border-radius: 5px;
+            background: rgba(255, 255, 255, 0.1);
+            color: #E8E9EB;
+        }
 
-    input[type="submit"] {
-    padding: 10px 20px;
-    border-radius: 5px;
-    border: none;
-    background: linear-gradient(45deg, #00B0FF, #1DE9B6);
-    color: white;
-    cursor: pointer;
-    transition: background 0.3s ease;
-    }
+        input[type="submit"] {
+            padding: 10px 20px;
+            border-radius: 5px;
+            border: none;
+            background: linear-gradient(45deg, #00B0FF, #1DE9B6);
+            color: white;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
 
-    input[type="submit"]:hover {
-    background: linear-gradient(45deg, #D500F9, #E040FB);
-    }
+        input[type="submit"]:hover {
+            background: linear-gradient(45deg, #D500F9, #E040FB);
+        }
 
-    a {
-    display: inline-block;
-    padding: 10px 20px;
-    margin-top: 20px;
-    background: linear-gradient(45deg, #00B0FF, #1DE9B6);
-    color: white;
-    text-decoration: none;
-    border-radius: 5px;
-    transition: background 0.3s ease;
-    }
+        a {
+            display: inline-block;
+            padding: 10px 20px;
+            margin-top: 20px;
+            background: linear-gradient(45deg, #00B0FF, #1DE9B6);
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background 0.3s ease;
+        }
 
-    a:hover {
-    background: linear-gradient(45deg, #D500F9, #E040FB);
-    color: #FFF;
-    }
-    select[multiple] {
+        a:hover {
+            background: linear-gradient(45deg, #D500F9, #E040FB);
+            color: #FFF;
+        }
+select[multiple] {
     width: 100%;
     padding: 10px;
     border: 1px solid #4AD9D9;
@@ -79,16 +80,18 @@
     height: auto;
     min-height: 100px;
     overflow-y: auto;
-    }
+}
 
-    select[multiple] option {
+select[multiple] option {
     padding: 5px;
-    }
+}
 
-    select[multiple] option:hover {
+select[multiple] option:hover {
     background-color: #4AD9D9;
     color: #002233;
-    }
+}
+
+    </style>
 </head>
 <body>
 <h2>Create new movie</h2>
