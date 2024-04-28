@@ -28,7 +28,6 @@ public class MovieController {
         Page<MovieDto> moviesPage = movieService.listDto(pageNo, sortField, sortDir, filterField, filterValue);
         model.addAttribute("movies", moviesPage.getContent());
         model.addAttribute("currentPage", pageNo);
-        model.addAttribute("totalPages", moviesPage.getTotalPages()); // Ensure this is not null
         model.addAttribute("totalElements", moviesPage.getTotalElements());
         model.addAttribute("sortField", sortField);
         model.addAttribute("sortDir", sortDir);
