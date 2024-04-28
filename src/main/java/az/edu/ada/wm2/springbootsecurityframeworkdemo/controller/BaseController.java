@@ -20,13 +20,13 @@ public class BaseController {
     @GetMapping("/")
     public String getWelcomePage(Model model){
         model.addAttribute("message", " This is global HOME page");
-        return "welcome";
+        return "index";
     }
 
     @GetMapping("/bye")
     public String getFarewellPage(Model model){
         model.addAttribute("message", farewellMessage);
-        return "welcome";
+        return "index";
     }
 
 }

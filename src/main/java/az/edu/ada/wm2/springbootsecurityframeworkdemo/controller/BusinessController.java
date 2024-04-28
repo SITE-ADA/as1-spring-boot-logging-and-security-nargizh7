@@ -10,13 +10,13 @@ public class BusinessController {
     @GetMapping("/users")
     public String getUsersHomePage(Model model){
         model.addAttribute("message", "This is home for USERS");
-        return "welcome";
+        return "index";
     }
 
 
     @GetMapping("/admins")
     public String getAdminsHomePage(Model model){
         model.addAttribute("message", "This is home for ADMINS");
-        return "welcome";
+        return "index";
     }
 }

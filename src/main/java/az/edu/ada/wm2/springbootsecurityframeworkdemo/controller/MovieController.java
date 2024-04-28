@@ -35,7 +35,7 @@ public class MovieController {
         model.addAttribute("filterField", filterField);
         model.addAttribute("filterValue", filterValue);
 
-        return "movies/welcome";
+        return "movies/index";
     }
 
     @GetMapping("/new")
@@ -68,6 +68,6 @@ public class MovieController {
     public String getWebMovies(Model model, @PathVariable String keyword) {
         List<MovieDto> movies = movieService.getAllWebMovies(keyword);
         model.addAttribute("movies", movies);
-        return "movies/welcome";
+        return "movies/index";
     }
 }
