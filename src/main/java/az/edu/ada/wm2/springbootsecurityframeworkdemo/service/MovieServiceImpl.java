@@ -69,4 +69,15 @@ public class MovieServiceImpl implements MovieService {
         movie.setWins(movieDto.getWins());
         return movie;
     }
+
+    @Override
+    public MovieDto getDtoById(Long id) {
+        // Assuming you have a method to convert a Movie entity to MovieDto
+        Movie movie = movieRepo.findById(id).orElse(null);
+        if (movie != null) {
+            return convertToDto(movie);
+        }
+        return null;
+    }
+
 }

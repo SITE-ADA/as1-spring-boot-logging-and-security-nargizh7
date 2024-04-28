@@ -96,13 +96,14 @@ select[multiple] option:hover {
 <body>
 <h2>Update the Movie</h2>
 <div class="page-info">
-    <form th:action="@{/movie/update}" method="POST" th:object="${movieDto}">
-        <input type="hidden" th:field="*{id}"/> <br/>
-        <input type="text" th:field="*{name}" placeholder="Name"/> <br/>
-        <input type="text" th:field="*{country}" placeholder="Country"/> <br/>
-        <input type="text" th:field="*{wins}" placeholder="Awards"/> <br/>
+    <form th:action="@{/movie/}" method="POST" th:object="${movieDto}">
+        <input type="hidden" th:field="*{id}"/>
+        <input type="text" th:field="*{name}" placeholder="Name"/>
+        <input type="text" th:field="*{country}" placeholder="Country"/>
+        <input type="text" th:field="*{wins}" placeholder="Awards"/>
         <input type="submit" value="Update Movie"/>
     </form>
+
     <a onclick="history.go(-1)">Back to the list</a>
 </div>
 </body>

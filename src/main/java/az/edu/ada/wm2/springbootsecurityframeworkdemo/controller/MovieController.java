@@ -7,7 +7,6 @@ import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
 
@@ -57,12 +56,15 @@ public class MovieController {
     }
 
     @GetMapping("/update/{id}")
-    public ModelAndView updateMovie(@PathVariable Long id) {
-        ModelAndView mv = new ModelAndView("update"); // Changed from "movies/update" to "update"
-        MovieDto movieDto = movieService.getById(id); // Fetch the MovieDto
-        mv.addObject("movieDto", movieDto);
-        return mv;
+    public String updateMovie(@PathVariable Long id, Model model) {
+        MovieDto movieDto = movieService.getDtoById(id);  // Assuming this method fetches the movie as a DTO
+        if (movieDto == null) {
+            return "redirect:/movie/";  // Redirect if no movie is found with the given ID
+        }
+        model.addAttribute("movieDto", movieDto);
+        return "update";  // Make sure this corresponds to the name of the Thymeleaf template
     }
+
 
     @GetMapping("/filter/{keyword}")
     public String getWebMovies(Model model, @PathVariable String keyword) {

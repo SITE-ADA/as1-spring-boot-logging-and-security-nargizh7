@@ -12,4 +12,6 @@ public interface MovieService {
     void deleteById(Long id);
     List<MovieDto> getAllWebMovies(String keyword);
     List<MovieDto> getAllMovies();  // Return a List of MovieDto
+
+    MovieDto getDtoById(Long id);
 }
