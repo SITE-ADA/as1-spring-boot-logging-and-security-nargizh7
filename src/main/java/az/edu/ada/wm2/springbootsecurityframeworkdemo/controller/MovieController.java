@@ -35,13 +35,13 @@ public class MovieController {
         model.addAttribute("filterField", filterField);
         model.addAttribute("filterValue", filterValue);
 
-        return "movies/index";
+        return "index"; // Changed from "/index" to "index"
     }
 
     @GetMapping("/new")
     public String createNewMovie(Model model) {
         model.addAttribute("movieDto", new MovieDto()); // Ensure a new MovieDto is provided to the form
-        return "movies/new";
+        return "new"; // Changed from "/new" to "new"
     }
 
     @PostMapping("/")
@@ -58,7 +58,7 @@ public class MovieController {
 
     @GetMapping("/update/{id}")
     public ModelAndView updateMovie(@PathVariable Long id) {
-        ModelAndView mv = new ModelAndView("movies/update");
+        ModelAndView mv = new ModelAndView("update"); // Changed from "movies/update" to "update"
         MovieDto movieDto = movieService.getById(id); // Fetch the MovieDto
         mv.addObject("movieDto", movieDto);
         return mv;
@@ -68,6 +68,7 @@ public class MovieController {
     public String getWebMovies(Model model, @PathVariable String keyword) {
         List<MovieDto> movies = movieService.getAllWebMovies(keyword);
         model.addAttribute("movies", movies);
-        return "movies/index";
+        return "index"; // Changed from "/index" to "index"
     }
 }
+
