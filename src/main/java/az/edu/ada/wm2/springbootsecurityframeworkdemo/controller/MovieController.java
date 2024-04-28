@@ -1,25 +1,22 @@
 package az.edu.ada.wm2.springbootsecurityframeworkdemo.controller;
 
-import org.springframework.data.domain.Page;
-import az.edu.ada.wm2.springbootsecurityframeworkdemo.model.entity.Movie;
+import az.edu.ada.wm2.springbootsecurityframeworkdemo.model.dto.MovieDto;
 import az.edu.ada.wm2.springbootsecurityframeworkdemo.service.MovieService;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.util.List;
+
 @Controller
 @RequestMapping("/movie")
 public class MovieController {
-    static final Logger LOGGER = LoggerFactory.getLogger(MovieController.class);
 
-    private final MovieService movieService;
-
-    public MovieController(MovieService movieService) {
-        this.movieService = movieService;
-    }
+    @Autowired
+    private MovieService movieService;
 
     @GetMapping({"", "/", "/list"})
     public String getMovies(Model model,
@@ -28,7 +25,7 @@ public class MovieController {
                             @RequestParam(name = "sortDir", defaultValue = "asc") String sortDir,
                             @RequestParam(name = "filterField", defaultValue = "") String filterField,
                             @RequestParam(name = "filterValue", defaultValue = "") String filterValue) {
-        Page<Movie> moviesPage = movieService.list(pageNo, sortField, sortDir, filterField, filterValue);
+        Page<MovieDto> moviesPage = movieService.listDto(pageNo, sortField, sortDir, filterField, filterValue);
         model.addAttribute("movies", moviesPage.getContent());
         model.addAttribute("currentPage", pageNo);
         model.addAttribute("totalPages", moviesPage.getTotalPages());
@@ -38,18 +35,18 @@ public class MovieController {
         model.addAttribute("filterField", filterField);
         model.addAttribute("filterValue", filterValue);
 
-        return "movies/index";
+        return "movies/welcome";
     }
 
     @GetMapping("/new")
     public String createNewMovie(Model model) {
-        model.addAttribute("movie", new Movie());
+        model.addAttribute("movieDto", new MovieDto()); // Ensure a new MovieDto is provided to the form
         return "movies/new";
     }
 
     @PostMapping("/")
-    public String save(@ModelAttribute("movie") Movie movie) {
-        movieService.save(movie);
+    public String save(@ModelAttribute("movieDto") MovieDto movieDto) {
+        movieService.save(movieDto);
         return "redirect:/movie/";
     }
 
@@ -62,14 +59,15 @@ public class MovieController {
     @GetMapping("/update/{id}")
     public ModelAndView updateMovie(@PathVariable Long id) {
         ModelAndView mv = new ModelAndView("movies/update");
-        Movie movie = movieService.getById(id);
-        mv.addObject("movie", movie);
+        MovieDto movieDto = movieService.getById(id); // Fetch the MovieDto
+        mv.addObject("movieDto", movieDto);
         return mv;
     }
 
     @GetMapping("/filter/{keyword}")
     public String getWebMovies(Model model, @PathVariable String keyword) {
-        model.addAttribute("movies", movieService.getAllWebMovies(keyword));
-        return "movies/index";
+        List<MovieDto> movies = movieService.getAllWebMovies(keyword);
+        model.addAttribute("movies", movies);
+        return "movies/welcome";
     }
 }

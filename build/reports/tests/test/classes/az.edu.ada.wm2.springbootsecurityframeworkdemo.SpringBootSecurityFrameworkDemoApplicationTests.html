@@ -41,7 +41,7 @@
 </td>
 <td>
 <div class="infoBox" id="duration">
-<div class="counter">1.188s</div>
+<div class="counter">2.382s</div>
 <p>duration</p>
 </div>
 </td>
@@ -79,7 +79,7 @@
 </thead>
 <tr>
 <td class="success">contextLoads()</td>
-<td class="success">1.188s</td>
+<td class="success">2.382s</td>
 <td class="success">passed</td>
 </tr>
 </table>
@@ -87,8 +87,8 @@
 <div id="tab1" class="tab">
 <h2>Standard output</h2>
 <span class="code">
-<pre>15:41:44.152 [Test worker] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [az.edu.ada.wm2.springbootsecurityframeworkdemo.SpringBootSecurityFrameworkDemoApplicationTests]: SpringBootSecurityFrameworkDemoApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
-15:41:44.485 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration az.edu.ada.wm2.springbootsecurityframeworkdemo.SpringBootSecurityFrameworkDemoApplication for test class az.edu.ada.wm2.springbootsecurityframeworkdemo.SpringBootSecurityFrameworkDemoApplicationTests
+<pre>17:36:49.190 [Test worker] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [az.edu.ada.wm2.springbootsecurityframeworkdemo.SpringBootSecurityFrameworkDemoApplicationTests]: SpringBootSecurityFrameworkDemoApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+17:36:49.440 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration az.edu.ada.wm2.springbootsecurityframeworkdemo.SpringBootSecurityFrameworkDemoApplication for test class az.edu.ada.wm2.springbootsecurityframeworkdemo.SpringBootSecurityFrameworkDemoApplicationTests
 
   .   ____          _            __ _ _
  /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
@@ -98,24 +98,24 @@
  =========|_|==============|___/=/_/_/_/
  :: Spring Boot ::                (v3.2.5)
 
-2024-04-28T15:41:46.116+04:00  INFO 27832 --- [    Test worker] ootSecurityFrameworkDemoApplicationTests : Starting SpringBootSecurityFrameworkDemoApplicationTests using Java 17.0.10 with PID 27832 (started by nargi in C:\Users\nargi\OneDrive\Documents\web2\as1-spring-boot-logging-and-security-nargizh7)
-2024-04-28T15:41:46.120+04:00  INFO 27832 --- [    Test worker] ootSecurityFrameworkDemoApplicationTests : No active profile set, falling back to 1 default profile: &quot;default&quot;
-2024-04-28T15:41:48.717+04:00  INFO 27832 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2024-04-28T15:41:49.124+04:00  INFO 27832 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 308 ms. Found 2 JPA repository interfaces.
-2024-04-28T15:41:51.412+04:00  INFO 27832 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2024-04-28T15:41:51.913+04:00  INFO 27832 --- [    Test worker] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:authDB user=SA
-2024-04-28T15:41:51.915+04:00  INFO 27832 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2024-04-28T15:41:52.070+04:00  INFO 27832 --- [    Test worker] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2024-04-28T15:41:52.325+04:00  INFO 27832 --- [    Test worker] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.4.4.Final
-2024-04-28T15:41:52.468+04:00  INFO 27832 --- [    Test worker] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
-2024-04-28T15:41:53.201+04:00  INFO 27832 --- [    Test worker] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
-2024-04-28T15:41:55.168+04:00  INFO 27832 --- [    Test worker] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2024-04-28T15:41:55.260+04:00  INFO 27832 --- [    Test worker] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2024-04-28T15:41:55.988+04:00  INFO 27832 --- [    Test worker] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
-2024-04-28T15:41:57.316+04:00  WARN 27832 --- [    Test worker] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2024-04-28T15:41:58.428+04:00  INFO 27832 --- [    Test worker] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@53f67af6, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@5a85f41b, org.springframework.security.web.context.SecurityContextHolderFilter@54e0b29c, org.springframework.security.web.header.HeaderWriterFilter@7ba38cce, org.springframework.web.filter.CorsFilter@35abfeba, org.springframework.security.web.authentication.logout.LogoutFilter@19aa9540, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@5035c23c, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@4c24063c, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@3dd22110, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@7b031f53, org.springframework.security.web.access.ExceptionTranslationFilter@4300b54c, org.springframework.security.web.access.intercept.AuthorizationFilter@8cd00bc]
-2024-04-28T15:41:59.307+04:00  INFO 27832 --- [    Test worker] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2'. Database available at 'jdbc:h2:mem:authDB'
-2024-04-28T15:41:59.580+04:00  INFO 27832 --- [    Test worker] ootSecurityFrameworkDemoApplicationTests : Started SpringBootSecurityFrameworkDemoApplicationTests in 14.158 seconds (process running for 17.854)
+2024-04-28T17:36:50.449+04:00  INFO 14280 --- [    Test worker] ootSecurityFrameworkDemoApplicationTests : Starting SpringBootSecurityFrameworkDemoApplicationTests using Java 17.0.10 with PID 14280 (started by nargi in C:\Users\nargi\OneDrive\Documents\web2\as1-spring-boot-logging-and-security-nargizh7)
+2024-04-28T17:36:50.452+04:00  INFO 14280 --- [    Test worker] ootSecurityFrameworkDemoApplicationTests : No active profile set, falling back to 1 default profile: &quot;default&quot;
+2024-04-28T17:36:52.569+04:00  INFO 14280 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-04-28T17:36:52.817+04:00  INFO 14280 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 218 ms. Found 2 JPA repository interfaces.
+2024-04-28T17:36:54.998+04:00  INFO 14280 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-04-28T17:36:55.680+04:00  INFO 14280 --- [    Test worker] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:authDB user=SA
+2024-04-28T17:36:55.686+04:00  INFO 14280 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-04-28T17:36:55.845+04:00  INFO 14280 --- [    Test worker] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-04-28T17:36:56.052+04:00  INFO 14280 --- [    Test worker] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.4.4.Final
+2024-04-28T17:36:56.255+04:00  INFO 14280 --- [    Test worker] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-04-28T17:36:57.359+04:00  INFO 14280 --- [    Test worker] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-04-28T17:37:04.148+04:00  INFO 14280 --- [    Test worker] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-04-28T17:37:04.332+04:00  INFO 14280 --- [    Test worker] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-04-28T17:37:05.610+04:00  INFO 14280 --- [    Test worker] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2024-04-28T17:37:08.382+04:00  WARN 14280 --- [    Test worker] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-04-28T17:37:10.857+04:00  INFO 14280 --- [    Test worker] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@7b031f53, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@1b42eb0f, org.springframework.security.web.context.SecurityContextHolderFilter@3dd22110, org.springframework.security.web.header.HeaderWriterFilter@54e0b29c, org.springframework.web.filter.CorsFilter@6e92f150, org.springframework.security.web.authentication.logout.LogoutFilter@7313e4fb, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@2d2c794d, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@4b9b57d9, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@2762bd70, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@4268c16, org.springframework.security.web.access.ExceptionTranslationFilter@6903bec9, org.springframework.security.web.access.intercept.AuthorizationFilter@4d8458a1]
+2024-04-28T17:37:13.736+04:00  INFO 14280 --- [    Test worker] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2'. Database available at 'jdbc:h2:mem:authDB'
+2024-04-28T17:37:14.150+04:00  INFO 14280 --- [    Test worker] ootSecurityFrameworkDemoApplicationTests : Started SpringBootSecurityFrameworkDemoApplicationTests in 24.119 seconds (process running for 27.251)
 </pre>
 </span>
 </div>
@@ -127,7 +127,7 @@
 <input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
 </label>
 </div>Generated by 
-<a href="http://www.gradle.org">Gradle 8.7</a> at Apr 28, 2024, 3:42:01 PM</p>
+<a href="http://www.gradle.org">Gradle 8.7</a> at Apr 28, 2024, 5:37:18 PM</p>
 </div>
 </div>
 </body>

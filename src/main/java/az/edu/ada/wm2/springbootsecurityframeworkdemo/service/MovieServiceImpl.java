@@ -1,5 +1,6 @@
 package az.edu.ada.wm2.springbootsecurityframeworkdemo.service;
 
+import az.edu.ada.wm2.springbootsecurityframeworkdemo.model.dto.MovieDto;
 import az.edu.ada.wm2.springbootsecurityframeworkdemo.model.entity.Movie;
 import az.edu.ada.wm2.springbootsecurityframeworkdemo.repo.MovieRepository;
 import org.springframework.data.domain.Page;
@@ -8,6 +9,7 @@ import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class MovieServiceImpl implements MovieService {
@@ -19,25 +21,23 @@ public class MovieServiceImpl implements MovieService {
     }
 
     @Override
-    public List<Movie> getAllMovies() {
-        return movieRepo.findAll();
-    }
-
-    @Override
-    public Page<Movie> list(int pageNo, String sortField, String sortDir, String filterField, String filterValue) {
+    public Page<MovieDto> listDto(int pageNo, String sortField, String sortDir, String filterField, String filterValue) {
         Sort sort = Sort.by(Sort.Direction.fromString(sortDir), sortField);
-        PageRequest pageable = PageRequest.of(pageNo - 1, 5, sort);
-        return movieRepo.findAll(pageable); // Simplified to use pageable only, filter logic can be added if needed
+        PageRequest pageRequest = PageRequest.of(pageNo - 1, 10, sort);
+        Page<Movie> moviePage = movieRepo.findAll(pageRequest);
+        return moviePage.map(this::convertToDto);
     }
 
     @Override
-    public Movie save(Movie movie) {
-        return movieRepo.save(movie);
+    public MovieDto save(MovieDto movieDto) {
+        Movie movie = convertToEntity(movieDto);
+        movie = movieRepo.save(movie);
+        return convertToDto(movie);
     }
 
     @Override
-    public Movie getById(Long id) {
-        return movieRepo.findById(id).orElse(null);
+    public MovieDto getById(Long id) {
+        return movieRepo.findById(id).map(this::convertToDto).orElse(null);
     }
 
     @Override
@@ -46,7 +46,27 @@ public class MovieServiceImpl implements MovieService {
     }
 
     @Override
-    public List<Movie> getAllWebMovies(String keyword) {
-        return (List<Movie>) movieRepo.getAllWebMoviesUsingJPAQuery(keyword);
+    public List<MovieDto> getAllWebMovies(String keyword) {
+        List<Movie> movies = (List<Movie>) movieRepo.getAllWebMoviesUsingJPAQuery(keyword);
+        return movies.stream().map(this::convertToDto).collect(Collectors.toList());
+    }
+
+    @Override
+    public List<MovieDto> getAllMovies() {
+        List<Movie> movies = movieRepo.findAll();
+        return movies.stream().map(this::convertToDto).collect(Collectors.toList());
+    }
+
+    private MovieDto convertToDto(Movie movie) {
+        return MovieDto.fromMovie(movie);
+    }
+
+    private Movie convertToEntity(MovieDto movieDto) {
+        Movie movie = new Movie();
+        movie.setId(movieDto.getId());
+        movie.setName(movieDto.getName());
+        movie.setCountry(movieDto.getCountry());
+        movie.setWins(movieDto.getWins());
+        return movie;
     }
 }

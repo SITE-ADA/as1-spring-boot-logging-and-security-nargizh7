@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Info</title>
+    body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(145deg, #0A0F0D, #005A7F);
+    color: #E8E9EB;
+    padding: 20px;
+    margin: 0;
+    }
+
+    h2 {
+    color: #EFEFEF;
+    text-shadow: 1px 1px 5px rgba(255,255,255,0.5);
+    }
+
+    p {
+    background: rgba(0, 0, 0, 0.85);
+    padding: 10px;
+    border-radius: 5px;
+    margin-top: 20px;
+    }
+
+    th:block {
+    background: rgba(0, 0, 0, 0.85);
+    padding: 20px;
+    border-radius: 5px;
+    margin-top: 20px;
+    display: block; /* Ensure block takes up full width */
+    }
+
+    strong {
+    display: block; /* Make each strong tag appear on a new line */
+    margin: 10px 0;
+    color: #4AD9D9;
+    font-size: 18px;
+    }
+
+    a {
+    color: #4AD9D9;
+    text-decoration: none;
+    transition: color 0.3s ease;
+    display: inline-block;
+    margin-top: 20px;
+    }
+
+    a:hover {
+    color: #D4E157;
+    }
+
+</head>
+<body>
+<h2>Show the movie info</h2>
+<p th:if="${movieDto} == null">Movie not found</p>
+<div th:if="${movieDto}">
+    <strong th:text="'ID: ' + ${movieDto.id}"></strong>
+    <strong th:text="'Name: ' + ${movieDto.name}"></strong>
+    <strong th:text="'Country: ' + ${movieDto.country}"></strong>
+    <strong th:text="'Wins: ' + ${movieDto.wins}"></strong>
+</div>
+<br/>
+<a th:href="@{/movie/}">List movies</a>
+</body>
+</html>
