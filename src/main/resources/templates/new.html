@@ -97,9 +97,18 @@ select[multiple] option:hover {
 <h2>Create new movie</h2>
 <div class="page-info">
     <form th:action="@{/movie/}" method="POST" th:object="${movieDto}">
-        <input type="text" th:field="*{name}" placeholder="Movie name"/> <br/>
-        <input type="text" th:field="*{country}" placeholder="Movie country"/> <br/>
-        <input type="text" th:field="*{wins}" placeholder="Number of awards"/> <br/>
+        <div>
+            <input type="text" th:field="*{name}" placeholder="Movie name"/>
+            <div th:if="${#fields.hasErrors('name')}" th:errors="*{name}" class="alert alert-danger">Name Error</div>
+        </div>
+        <div>
+            <input type="text" th:field="*{country}" placeholder="Movie country"/>
+            <div th:if="${#fields.hasErrors('country')}" th:errors="*{country}" class="alert alert-danger">Country Error</div>
+        </div>
+        <div>
+            <input type="text" th:field="*{wins}" placeholder="Number of awards"/>
+            <div th:if="${#fields.hasErrors('wins')}" th:errors="*{wins}" class="alert alert-danger">Awards Error</div>
+        </div>
         <input type="submit" value="Save Movie"/>
     </form>
     <a onclick="history.go(-1)">Back to the list</a>

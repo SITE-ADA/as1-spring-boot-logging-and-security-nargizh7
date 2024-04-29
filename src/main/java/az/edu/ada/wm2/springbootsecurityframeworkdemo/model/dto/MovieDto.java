@@ -2,16 +2,28 @@ package az.edu.ada.wm2.springbootsecurityframeworkdemo.model.dto;
 
 import az.edu.ada.wm2.springbootsecurityframeworkdemo.model.entity.Movie;
 import lombok.Data;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
+import jakarta.validation.constraints.Min;
 
 @Data
 public class MovieDto {
 
     private Long id;
+
+    @NotBlank(message = "Movie name cannot be blank")
+    @Size(max = 255, message = "Movie name must not exceed 255 characters")
     private String name;
+
+    @NotBlank(message = "Country cannot be blank")
+    @Size(max = 255, message = "Country name must not exceed 255 characters")
     private String country;
+
+    @NotNull(message = "Number of wins must not be null")
+    @Min(value = 0, message = "Number of wins cannot be negative")
     private Integer wins;
 
-    // Converts this DTO to the Movie entity
     public Movie toMovie() {
         Movie movie = new Movie();
         movie.setId(this.id);
@@ -21,7 +33,6 @@ public class MovieDto {
         return movie;
     }
 
-    // Static method to create a DTO from a Movie entity
     public static MovieDto fromMovie(Movie movie) {
         MovieDto dto = new MovieDto();
         dto.setId(movie.getId());

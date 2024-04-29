@@ -6,9 +6,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
-
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+import jakarta.validation.Valid;
 import java.util.List;
+
 
 @Controller
 @RequestMapping("/movie")
@@ -44,7 +47,12 @@ public class MovieController {
     }
 
     @PostMapping("/")
-    public String save(@ModelAttribute("movieDto") MovieDto movieDto) {
+    public String save(@Valid @ModelAttribute("movieDto") MovieDto movieDto, BindingResult result, RedirectAttributes redirectAttributes) {
+        if (result.hasErrors()) {
+            redirectAttributes.addFlashAttribute("org.springframework.validation.BindingResult.movieDto", result);
+            redirectAttributes.addFlashAttribute("movieDto", movieDto);
+            return "new";  // Redirect back to the form page with errors
+        }
         movieService.save(movieDto);
         return "redirect:/movie/";
     }
@@ -55,14 +63,14 @@ public class MovieController {
         return "redirect:/movie/";
     }
 
-    @GetMapping("/update/{id}")
-    public String updateMovie(@PathVariable Long id, Model model) {
-        MovieDto movieDto = movieService.getDtoById(id);  // Assuming this method fetches the movie as a DTO
-        if (movieDto == null) {
-            return "redirect:/movie/";  // Redirect if no movie is found with the given ID
+    @PostMapping("/update/{id}")
+    public String updateMovie(@PathVariable Long id, @Valid @ModelAttribute("movieDto") MovieDto movieDto, BindingResult result, Model model, RedirectAttributes redirectAttributes) {
+        if (result.hasErrors()) {
+            model.addAttribute("movieDto", movieDto);
+            return "update";  // Stay on the update page if there are errors
         }
-        model.addAttribute("movieDto", movieDto);
-        return "update";  // Make sure this corresponds to the name of the Thymeleaf template
+        movieService.save(movieDto);
+        return "redirect:/movie/";
     }
 
 
