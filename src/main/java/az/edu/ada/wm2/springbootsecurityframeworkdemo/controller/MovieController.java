@@ -74,14 +74,14 @@ public class MovieController {
     }
 
     @PostMapping("/update/{id}")
-    public String updateMovie(@PathVariable Long id, @Valid @ModelAttribute("movieDto") MovieDto movieDto, BindingResult result, RedirectAttributes redirectAttributes) {
+    public String updateMovie(@PathVariable Long id, @Valid @ModelAttribute("movieDto") MovieDto movieDto, BindingResult result, Model model) {
         if (result.hasErrors()) {
-            redirectAttributes.addFlashAttribute("org.springframework.validation.BindingResult.movieDto", result);
-            redirectAttributes.addFlashAttribute("movieDto", movieDto);
-            return "redirect:/movie/update/{id}";
+            model.addAttribute("movieDto", movieDto);
+            model.addAttribute("org.springframework.validation.BindingResult.movieDto", result);
+            return "update";  // Return directly to the update view with the form data and errors
         }
         movieService.save(movieDto);
-        return "redirect:/movie/";
+        return "redirect:/movie/";  // Redirect after successful update
     }
 
     @GetMapping("/filter/{keyword}")
