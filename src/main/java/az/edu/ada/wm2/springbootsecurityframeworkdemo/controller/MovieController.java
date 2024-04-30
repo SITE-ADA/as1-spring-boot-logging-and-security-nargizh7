@@ -63,16 +63,26 @@ public class MovieController {
         return "redirect:/movie/";
     }
 
+    @GetMapping("/update/{id}")
+    public String showUpdateForm(@PathVariable Long id, Model model) {
+        MovieDto movieDto = movieService.getDtoById(id);
+        if (movieDto == null) {
+            return "redirect:/movie/";  // Redirect if no movie is found
+        }
+        model.addAttribute("movieDto", movieDto);
+        return "update";
+    }
+
     @PostMapping("/update/{id}")
-    public String updateMovie(@PathVariable Long id, @Valid @ModelAttribute("movieDto") MovieDto movieDto, BindingResult result, Model model, RedirectAttributes redirectAttributes) {
+    public String updateMovie(@PathVariable Long id, @Valid @ModelAttribute("movieDto") MovieDto movieDto, BindingResult result, RedirectAttributes redirectAttributes) {
         if (result.hasErrors()) {
-            model.addAttribute("movieDto", movieDto);
-            return "update";  // Stay on the update page if there are errors
+            redirectAttributes.addFlashAttribute("org.springframework.validation.BindingResult.movieDto", result);
+            redirectAttributes.addFlashAttribute("movieDto", movieDto);
+            return "redirect:/movie/update/{id}";
         }
         movieService.save(movieDto);
         return "redirect:/movie/";
     }
-
 
     @GetMapping("/filter/{keyword}")
     public String getWebMovies(Model model, @PathVariable String keyword) {

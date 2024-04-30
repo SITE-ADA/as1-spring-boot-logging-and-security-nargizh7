@@ -96,7 +96,6 @@ select[multiple] option:hover {
 <body>
 <h2>Update the Movie</h2>
 <div class="page-info">
-    <!-- Update the form action to explicitly include the movie ID -->
     <form th:action="@{/movie/update/{id}(id=${movieDto.id})}" method="POST" th:object="${movieDto}">
         <input type="hidden" th:field="*{id}"/>
         <div>
@@ -113,9 +112,7 @@ select[multiple] option:hover {
         </div>
         <input type="submit" value="Update Movie"/>
     </form>
-    <!-- Simplified back navigation -->
     <a th:href="@{/movie/list}">Back to the list</a>
 </div>
 </body>
-
 </html>
