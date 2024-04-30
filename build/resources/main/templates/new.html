@@ -111,7 +111,8 @@ select[multiple] option:hover {
         </div>
         <input type="submit" value="Save Movie"/>
     </form>
-    <a onclick="history.go(-1)">Back to the list</a>
+    <a th:href="@{/movie/list}">Back to the list</a>
+
 </div>
 </body>
 </html>
