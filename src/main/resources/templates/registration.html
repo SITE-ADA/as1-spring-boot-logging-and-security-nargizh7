@@ -11,31 +11,26 @@
 
 </head>
 <body>
-
-<form action="#" method="POST" th:action="@{/signup}" th:object="${signupDto}">
-    <div th:if="${#fields.hasAnyErrors()}" class="alert alert-info">
-        <p>Please Correct Errors Below</p>
+<h2>Sign Up</h2>
+<form th:action="@{/signup}" method="post" th:object="${signupDto}">
+    <div>
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" th:field="*{username}" required>
+        <p th:if="${#fields.hasErrors('username')}" th:errors="*{username}">Username Error</p>
     </div>
-
-    <div class="mb-3">
-        <label for="username" class="form-label">Username:</label>
-        <input type="text" th:field="*{username}" class="form-control" placeholder="Username"/> <br/>
-        <p th:if="${#fields.hasErrors('username')}" th:errors="*{username}" class="alert alert-danger"></p>
+    <div>
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" th:field="*{password}" required>
+        <p th:if="${#fields.hasErrors('password')}" th:errors="*{password}">Password Error</p>
     </div>
-    <div class="mb-3">
-        <label for="email" class="form-label">Email:</label>
-        <input type="text" th:field="*{email}" class="form-control" placeholder="Email"/> <br/>
-        <p th:if="${#fields.hasErrors('email')}" th:errors="*{email}" class="alert alert-danger"></p>
+    <div>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" th:field="*{email}" required>
+        <p th:if="${#fields.hasErrors('email')}" th:errors="*{email}">Email Error</p>
     </div>
-    <div class="mb-3">
-        <label for="password" class="form-label">Password:</label>
-        <input type="password" th:field="*{password}" class="form-control" placeholder="Password"/> <br/>
-        <p th:if="${#fields.hasErrors('password')}" th:errors="*{password}" class="alert alert-danger"></p>
-    </div>
-
-    <input type="submit" value="Sign up"/>
+    <button type="submit">Sign Up</button>
 </form>
-
-
+<a th:href="@{/login}">Already registered? Log in here</a>
 </body>
+
 </html>

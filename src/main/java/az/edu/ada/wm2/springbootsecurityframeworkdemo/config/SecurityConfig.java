@@ -11,42 +11,22 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 import java.util.Optional;
 
 @Configuration
 public class SecurityConfig {
 
-//    @Value("${spring.h2.console.path}")
-//    private String h2Console;
-
     @Bean
     public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
     }
 
-//    @Bean
-//    public UserDetailsService userDetailsService(PasswordEncoder passwordEncoder) {
-//
-//        List<UserDetails> users = new ArrayList<>();
-//
-//        Collections.addAll(users,
-//                new User("admin", passwordEncoder().encode("admin"),
-//                        Arrays.asList(new SimpleGrantedAuthority("ROLE_ADMIN")
-//                        )),
-//                new User("nsadili", passwordEncoder().encode("12345"),
-//                        Arrays.asList(new SimpleGrantedAuthority("ROLE_USER")
-//                        ))
-//        );
-//
-//        return new InMemoryUserDetailsManager(users);
-//    }
-
     @Bean
     public UserDetailsService userDetailsService(UserRepository repo) {
         return username -> {
             Optional<User> res = repo.findByUsername(username);
-
             return res.orElseThrow(() ->
                     new UsernameNotFoundException(username + " not found")
             );
@@ -60,18 +40,20 @@ public class SecurityConfig {
                 .headers().frameOptions().sameOrigin()
                 .and()
                 .authorizeHttpRequests()
-                .requestMatchers("/users/**").hasAnyRole("ADMIN", "USER")
-                .requestMatchers("/admins/**").hasRole("ADMIN")
-                .requestMatchers("/", "/signup/**").permitAll()
-                .requestMatchers(PathRequest.toH2Console()).permitAll() //TBD
-//                .requestMatchers(h2Console + "/**").permitAll() //TBD
+                .requestMatchers("/movie/**").hasRole("ADMIN")
+                .requestMatchers("/movie/list").permitAll()
+                .requestMatchers("/", "/signup/**", "/login").permitAll()
+                .requestMatchers(PathRequest.toStaticResources().atCommonLocations()).permitAll()
                 .anyRequest().authenticated()
                 .and()
                 .formLogin(form -> form
                         .loginPage("/login")
                         .permitAll())
-        ;
-
+                .logout(logout -> logout
+                        .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
+                        .logoutSuccessUrl("/login?logout"))
+                .exceptionHandling(e -> e
+                        .accessDeniedPage("/403"));
         return http.build();
     }
 

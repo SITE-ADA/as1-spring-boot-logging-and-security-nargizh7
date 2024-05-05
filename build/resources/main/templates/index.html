@@ -1,5 +1,6 @@
 <!doctype html>
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -145,6 +146,9 @@
 <body>
 <h2>Movies List</h2>
 <a th:href="@{/movie/new}">ADD A NEW MOVIE</a>
+<a th:href="@{/movie/new}" sec:authorize="hasRole('ADMIN')">ADD A NEW MOVIE</a>
+<a th:href="@{/login}">Login</a>
+<a th:href="@{/signup}">Sign Up</a>
 
 <form action="#" th:action="@{/movie/list}" method="get">
     <div>
@@ -201,7 +205,7 @@
 
 
 <div class="page-info">
-    <a th:href="@{/}">Logout</a>
+    <a th:href="@{/logout}">Logout</a>
 </div>
 
 </body>

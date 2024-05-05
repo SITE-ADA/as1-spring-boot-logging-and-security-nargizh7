@@ -1,6 +1,7 @@
 package az.edu.ada.wm2.springbootsecurityframeworkdemo.controller;
 
 import az.edu.ada.wm2.springbootsecurityframeworkdemo.model.dto.SignupDto;
+import az.edu.ada.wm2.springbootsecurityframeworkdemo.model.entity.User;
 import az.edu.ada.wm2.springbootsecurityframeworkdemo.repo.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -29,10 +30,9 @@ public class RegistrationController {
 
     @PostMapping
     public String signup(@ModelAttribute SignupDto signupDto) {
-
-        userRepo.save(signupDto.toUser(passwordEncoder));
-
+        User user = signupDto.toUser(passwordEncoder);
+        user.addRole("ROLE_USER");
+        userRepo.save(user);
         return "redirect:/login";
     }
-
 }
