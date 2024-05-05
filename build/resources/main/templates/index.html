@@ -145,10 +145,7 @@
 </head>
 <body>
 <h2>Movies List</h2>
-<a th:href="@{/movie/new}">ADD A NEW MOVIE</a>
 <a th:href="@{/movie/new}" sec:authorize="hasRole('ADMIN')">ADD A NEW MOVIE</a>
-<a th:href="@{/login}">Login</a>
-<a th:href="@{/signup}">Sign Up</a>
 
 <form action="#" th:action="@{/movie/list}" method="get">
     <div>

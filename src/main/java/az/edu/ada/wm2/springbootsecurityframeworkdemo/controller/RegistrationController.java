@@ -11,28 +11,30 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-
 @Controller
-@RequestMapping("/signup")
+@RequestMapping("/registration") // Make sure this matches with your URL.
 public class RegistrationController {
 
     @Autowired
-    private UserRepository userRepo;
+    private UserRepository userRepository;
 
     @Autowired
     private PasswordEncoder passwordEncoder;
 
     @GetMapping
-    public String showSignup(Model model) {
+    public String showRegistrationForm(Model model) {
         model.addAttribute("signupDto", new SignupDto());
-        return "registration";
+        return "registration"; // This should be the name of your Thymeleaf template.
     }
 
     @PostMapping
-    public String signup(@ModelAttribute SignupDto signupDto) {
-        User user = signupDto.toUser(passwordEncoder);
+    public String registerUserAccount(@ModelAttribute("signupDto") SignupDto signupDto) {
+        User user = new User(signupDto.getUsername(),
+                passwordEncoder.encode(signupDto.getPassword()),
+                signupDto.getEmail());
         user.addRole("ROLE_USER");
-        userRepo.save(user);
+        userRepository.save(user);
         return "redirect:/login";
     }
+
 }
