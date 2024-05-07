@@ -12,7 +12,6 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import jakarta.validation.Valid;
 import java.util.List;
 
-
 @Controller
 @RequestMapping("/movie")
 public class MovieController {
@@ -39,11 +38,10 @@ public class MovieController {
         return "index";
     }
 
-
     @GetMapping("/new")
     public String createNewMovie(Model model) {
-        model.addAttribute("movieDto", new MovieDto()); // Ensure a new MovieDto is provided to the form
-        return "new"; // Changed from "/new" to "new"
+        model.addAttribute("movieDto", new MovieDto());
+        return "new";
     }
 
     @PostMapping("/")
@@ -88,7 +86,6 @@ public class MovieController {
     public String getWebMovies(Model model, @PathVariable String keyword) {
         List<MovieDto> movies = movieService.getAllWebMovies(keyword);
         model.addAttribute("movies", movies);
-        return "index"; // Changed from "/index" to "index"
+        return "index";
     }
 }
-

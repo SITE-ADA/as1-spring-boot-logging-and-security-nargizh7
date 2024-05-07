@@ -19,14 +19,19 @@ public class BaseController {
 
     @GetMapping("/")
     public String getWelcomePage(Model model){
-        model.addAttribute("message", " This is global HOME page");
+        model.addAttribute("message", sanitize(welcomeMessage)); // Sanitize the message to prevent XSS
         return "index";
     }
 
     @GetMapping("/bye")
     public String getFarewellPage(Model model){
-        model.addAttribute("message", farewellMessage);
+        model.addAttribute("message", sanitize(farewellMessage)); // Sanitize the message to prevent XSS
         return "index";
     }
 
+    // Method to sanitize messages
+    private String sanitize(String input) {
+        // Implement sanitization logic here to escape HTML characters
+        return input.replaceAll("<", "&lt;").replaceAll(">", "&gt;");
+    }
 }

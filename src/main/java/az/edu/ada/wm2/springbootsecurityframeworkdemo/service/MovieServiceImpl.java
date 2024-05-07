@@ -3,11 +3,11 @@ package az.edu.ada.wm2.springbootsecurityframeworkdemo.service;
 import az.edu.ada.wm2.springbootsecurityframeworkdemo.model.dto.MovieDto;
 import az.edu.ada.wm2.springbootsecurityframeworkdemo.model.entity.Movie;
 import az.edu.ada.wm2.springbootsecurityframeworkdemo.repo.MovieRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
-
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -16,6 +16,7 @@ public class MovieServiceImpl implements MovieService {
 
     private final MovieRepository movieRepo;
 
+    @Autowired
     public MovieServiceImpl(MovieRepository movieRepo) {
         this.movieRepo = movieRepo;
     }
@@ -47,7 +48,7 @@ public class MovieServiceImpl implements MovieService {
 
     @Override
     public List<MovieDto> getAllWebMovies(String keyword) {
-        List<Movie> movies = (List<Movie>) movieRepo.getAllWebMoviesUsingJPAQuery(keyword);
+        List<Movie> movies = movieRepo.findByCountryContainingIgnoreCase(keyword);
         return movies.stream().map(this::convertToDto).collect(Collectors.toList());
     }
 
@@ -72,12 +73,10 @@ public class MovieServiceImpl implements MovieService {
 
     @Override
     public MovieDto getDtoById(Long id) {
-        // Assuming you have a method to convert a Movie entity to MovieDto
         Movie movie = movieRepo.findById(id).orElse(null);
         if (movie != null) {
             return convertToDto(movie);
         }
         return null;
     }
-
 }

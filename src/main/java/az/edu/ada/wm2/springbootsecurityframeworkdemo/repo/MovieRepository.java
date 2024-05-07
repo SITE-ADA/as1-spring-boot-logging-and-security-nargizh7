@@ -12,15 +12,14 @@ import java.util.List;
 
 public interface MovieRepository extends JpaRepository<Movie, Long> {
 
-    @Query("select c from Movie c where lower(c.country) like %:keyword%")
-    Iterable<Movie> getAllWebMoviesUsingJPAQuery(@Param("keyword") String keyword);
+    @Query("select m from Movie m where lower(m.country) like %:keyword%")
+    List<Movie> findByCountryContainingIgnoreCase(@Param("keyword") String keyword);
 
-    @Query(value = "select * from movies where description like '%Web%'", nativeQuery = true)
-    Iterable<Movie> getAllWebMoviesUsingNativeQuery();
+    @Query(value = "SELECT * FROM movies m WHERE m.description LIKE %:keyword%", nativeQuery = true)
+    List<Movie> findByDescriptionContaining(@Param("keyword") String keyword);
 
     Page<Movie> findAll(Specification<Movie> movieSpecification, Pageable pageable);
 
     @Query(value = "SELECT * FROM movies m WHERE m.wins > :minWins AND m.country = :country", nativeQuery = true)
     List<Movie> findMoviesByWinsAndCountry(@Param("minWins") int minWins, @Param("country") String country);
-
 }

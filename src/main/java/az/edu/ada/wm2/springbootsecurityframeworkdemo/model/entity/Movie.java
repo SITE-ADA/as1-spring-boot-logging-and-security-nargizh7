@@ -15,10 +15,13 @@ public class Movie {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(nullable = false)
     private String name;
 
+    @Column(nullable = false)
     private String country;
 
+    @Column(nullable = false)
     private Integer wins;
 
     public Movie(String name, String country, Integer wins) {
@@ -28,7 +31,7 @@ public class Movie {
     }
 
     public Movie(String name, Integer wins) {
-        this(name, name, wins);
+        this(name, "Not specified", wins);
     }
 
     @Override

@@ -24,11 +24,15 @@ public class User implements UserDetails {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(unique = true, nullable = false)
     private String username;
 
+    @Column(nullable = false)
     private String password;
 
+    @Column(unique = true, nullable = false)
     private String email;
+
     private String roles; //ROLE_USER;ROLE_ADMIN -> persisted in DB
 
     @Transient
@@ -36,7 +40,7 @@ public class User implements UserDetails {
 
     public List<GrantedAuthority> getAuthorities() {
         return this.authorities.stream().map(
-                role -> new SimpleGrantedAuthority(role))
+                        role -> new SimpleGrantedAuthority(role))
                 .collect(Collectors.toList());
     }
 
@@ -82,5 +86,4 @@ public class User implements UserDetails {
     public boolean isEnabled() {
         return true;
     }
-
 }

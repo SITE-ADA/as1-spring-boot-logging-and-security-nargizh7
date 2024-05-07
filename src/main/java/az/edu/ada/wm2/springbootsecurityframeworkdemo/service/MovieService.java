@@ -13,5 +13,5 @@ public interface MovieService {
     List<MovieDto> getAllWebMovies(String keyword);
     List<MovieDto> getAllMovies();  // Return a List of MovieDto
 
-    MovieDto getDtoById(Long id);
+    MovieDto getDtoById(Long id);  // Additional method to handle DTO conversions explicitly if required
 }

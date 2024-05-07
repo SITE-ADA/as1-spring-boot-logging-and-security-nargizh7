@@ -7,12 +7,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import jakarta.validation.Valid;
+
 @Controller
-@RequestMapping("/registration") // Make sure this matches with your URL.
+@RequestMapping("/registration")
 public class RegistrationController {
 
     @Autowired
@@ -24,11 +27,14 @@ public class RegistrationController {
     @GetMapping
     public String showRegistrationForm(Model model) {
         model.addAttribute("signupDto", new SignupDto());
-        return "registration"; // This should be the name of your Thymeleaf template.
+        return "registration";
     }
 
     @PostMapping
-    public String registerUserAccount(@ModelAttribute("signupDto") SignupDto signupDto) {
+    public String registerUserAccount(@Valid @ModelAttribute("signupDto") SignupDto signupDto, BindingResult result) {
+        if (result.hasErrors()) {
+            return "registration";
+        }
         User user = new User(signupDto.getUsername(),
                 passwordEncoder.encode(signupDto.getPassword()),
                 signupDto.getEmail());
@@ -36,5 +42,4 @@ public class RegistrationController {
         userRepository.save(user);
         return "redirect:/login";
     }
-
 }
