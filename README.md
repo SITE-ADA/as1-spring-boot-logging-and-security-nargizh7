@@ -65,7 +65,7 @@ The application's source code is organized into several packages:
 - New users can register through the registration page.
 
 #### Video Link
-- **link**: 
+- **link**: `https://www.youtube.com/watch?v=nAbTqG0UweE`
 
 #### Documentation
 The Javadoc documentation for this application is automatically generated during the build process using Gradle. To view the documentation:
