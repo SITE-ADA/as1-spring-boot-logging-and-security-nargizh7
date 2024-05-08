@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="az.edu.ada.wm2.springbootsecurityframeworkdemo.SpringBootSecurityFrameworkDemoApplicationTests" tests="1" skipped="0" failures="0" errors="0" timestamp="2024-05-08T08:35:04" hostname="DESKTOP-QO9DOES" time="0.776">
+<testsuite name="az.edu.ada.wm2.springbootsecurityframeworkdemo.SpringBootSecurityFrameworkDemoApplicationTests" tests="1" skipped="0" failures="0" errors="0" timestamp="2024-05-08T11:08:54" hostname="DESKTOP-QO9DOES" time="0.87">
   <properties/>
-  <testcase name="contextLoads()" classname="az.edu.ada.wm2.springbootsecurityframeworkdemo.SpringBootSecurityFrameworkDemoApplicationTests" time="0.776"/>
-  <system-out><![CDATA[12:34:57.330 [Test worker] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [az.edu.ada.wm2.springbootsecurityframeworkdemo.SpringBootSecurityFrameworkDemoApplicationTests]: SpringBootSecurityFrameworkDemoApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
-12:34:57.492 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration az.edu.ada.wm2.springbootsecurityframeworkdemo.SpringBootSecurityFrameworkDemoApplication for test class az.edu.ada.wm2.springbootsecurityframeworkdemo.SpringBootSecurityFrameworkDemoApplicationTests
+  <testcase name="contextLoads()" classname="az.edu.ada.wm2.springbootsecurityframeworkdemo.SpringBootSecurityFrameworkDemoApplicationTests" time="0.87"/>
+  <system-out><![CDATA[15:08:44.252 [Test worker] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [az.edu.ada.wm2.springbootsecurityframeworkdemo.SpringBootSecurityFrameworkDemoApplicationTests]: SpringBootSecurityFrameworkDemoApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+15:08:44.500 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration az.edu.ada.wm2.springbootsecurityframeworkdemo.SpringBootSecurityFrameworkDemoApplication for test class az.edu.ada.wm2.springbootsecurityframeworkdemo.SpringBootSecurityFrameworkDemoApplicationTests
 
   .   ____          _            __ _ _
  /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
@@ -13,19 +13,19 @@
  =========|_|==============|___/=/_/_/_/
  :: Spring Boot ::                (v3.2.5)
 
-2024-05-08T12:34:58.044+04:00  INFO 8952 --- [    Test worker] ootSecurityFrameworkDemoApplicationTests : Starting SpringBootSecurityFrameworkDemoApplicationTests using Java 17.0.10 with PID 8952 (started by nargi in C:\Users\nargi\OneDrive\Documents\web2\as1-spring-boot-logging-and-security-nargizh7)
-2024-05-08T12:34:58.045+04:00  INFO 8952 --- [    Test worker] ootSecurityFrameworkDemoApplicationTests : No active profile set, falling back to 1 default profile: "default"
-2024-05-08T12:34:58.090+04:00 DEBUG 8952 --- [    Test worker] o.s.w.c.s.GenericWebApplicationContext   : Refreshing org.springframework.web.context.support.GenericWebApplicationContext@f973499
-2024-05-08T12:34:58.996+04:00  INFO 8952 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2024-05-08T12:34:59.082+04:00  INFO 8952 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 78 ms. Found 2 JPA repository interfaces.
-2024-05-08T12:34:59.804+04:00  INFO 8952 --- [    Test worker] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2024-05-08T12:34:59.868+04:00  INFO 8952 --- [    Test worker] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.4.4.Final
-2024-05-08T12:34:59.913+04:00  INFO 8952 --- [    Test worker] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
-2024-05-08T12:35:00.213+04:00  INFO 8952 --- [    Test worker] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
-2024-05-08T12:35:00.276+04:00  INFO 8952 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2024-05-08T12:35:00.513+04:00  INFO 8952 --- [    Test worker] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:umsDB user=SA
-2024-05-08T12:35:00.515+04:00  INFO 8952 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2024-05-08T12:35:01.321+04:00  INFO 8952 --- [    Test worker] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-05-08T15:08:45.386+04:00  INFO 3496 --- [    Test worker] ootSecurityFrameworkDemoApplicationTests : Starting SpringBootSecurityFrameworkDemoApplicationTests using Java 17.0.10 with PID 3496 (started by nargi in C:\Users\nargi\OneDrive\Documents\web2\as1-spring-boot-logging-and-security-nargizh7)
+2024-05-08T15:08:45.390+04:00  INFO 3496 --- [    Test worker] ootSecurityFrameworkDemoApplicationTests : No active profile set, falling back to 1 default profile: "default"
+2024-05-08T15:08:45.459+04:00 DEBUG 3496 --- [    Test worker] o.s.w.c.s.GenericWebApplicationContext   : Refreshing org.springframework.web.context.support.GenericWebApplicationContext@f973499
+2024-05-08T15:08:46.837+04:00  INFO 3496 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-05-08T15:08:47.007+04:00  INFO 3496 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 144 ms. Found 2 JPA repository interfaces.
+2024-05-08T15:08:48.191+04:00  INFO 3496 --- [    Test worker] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-05-08T15:08:48.536+04:00  INFO 3496 --- [    Test worker] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.4.4.Final
+2024-05-08T15:08:48.651+04:00  INFO 3496 --- [    Test worker] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-05-08T15:08:49.212+04:00  INFO 3496 --- [    Test worker] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-05-08T15:08:49.258+04:00  INFO 3496 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-05-08T15:08:49.844+04:00  INFO 3496 --- [    Test worker] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:umsDB user=SA
+2024-05-08T15:08:49.848+04:00  INFO 3496 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-05-08T15:08:51.674+04:00  INFO 3496 --- [    Test worker] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
 Hibernate: 
     drop table if exists movies cascade 
 Hibernate: 
@@ -47,18 +47,18 @@ Hibernate:
         username varchar(255) not null unique,
         primary key (id)
     )
-2024-05-08T12:35:01.354+04:00  INFO 8952 --- [    Test worker] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2024-05-08T12:35:01.748+04:00  INFO 8952 --- [    Test worker] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
-2024-05-08T12:35:02.361+04:00  WARN 8952 --- [    Test worker] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2024-05-08T12:35:02.661+04:00  INFO 8952 --- [    Test worker] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
-2024-05-08T12:35:02.830+04:00 DEBUG 8952 --- [    Test worker] s.w.s.m.m.a.RequestMappingHandlerMapping : 16 mappings in 'requestMappingHandlerMapping'
-2024-05-08T12:35:02.839+04:00 DEBUG 8952 --- [    Test worker] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/static, /login, /index] in 'viewControllerHandlerMapping'
-2024-05-08T12:35:03.100+04:00 DEBUG 8952 --- [    Test worker] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
-2024-05-08T12:35:03.222+04:00  INFO 8952 --- [    Test worker] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@541ea657, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@7308e2d6, org.springframework.security.web.context.SecurityContextHolderFilter@74c58f64, org.springframework.security.web.header.HeaderWriterFilter@25f688d5, org.springframework.web.filter.CorsFilter@37b97394, org.springframework.security.web.csrf.CsrfFilter@6970687e, org.springframework.security.web.authentication.logout.LogoutFilter@17e96b3c, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@14972600, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@5feceb2f, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@5327c503, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@6f371390, org.springframework.security.web.access.ExceptionTranslationFilter@4bdd6fe0, org.springframework.security.web.access.intercept.AuthorizationFilter@6e4d660]
-2024-05-08T12:35:03.617+04:00 DEBUG 8952 --- [    Test worker] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
-2024-05-08T12:35:03.701+04:00 DEBUG 8952 --- [    Test worker] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 0 @ExceptionHandler, 1 ResponseBodyAdvice
-2024-05-08T12:35:03.875+04:00  INFO 8952 --- [    Test worker] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2'. Database available at 'jdbc:h2:mem:umsDB'
-2024-05-08T12:35:04.134+04:00  INFO 8952 --- [    Test worker] ootSecurityFrameworkDemoApplicationTests : Started SpringBootSecurityFrameworkDemoApplicationTests in 6.383 seconds (process running for 7.745)
+2024-05-08T15:08:51.740+04:00  INFO 3496 --- [    Test worker] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-05-08T15:08:52.180+04:00  INFO 3496 --- [    Test worker] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2024-05-08T15:08:52.732+04:00  WARN 3496 --- [    Test worker] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-05-08T15:08:52.899+04:00  INFO 3496 --- [    Test worker] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2024-05-08T15:08:53.004+04:00 DEBUG 3496 --- [    Test worker] s.w.s.m.m.a.RequestMappingHandlerMapping : 16 mappings in 'requestMappingHandlerMapping'
+2024-05-08T15:08:53.010+04:00 DEBUG 3496 --- [    Test worker] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/static, /login, /index] in 'viewControllerHandlerMapping'
+2024-05-08T15:08:53.188+04:00 DEBUG 3496 --- [    Test worker] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
+2024-05-08T15:08:53.248+04:00  INFO 3496 --- [    Test worker] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@55a8f92d, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@78b3f926, org.springframework.security.web.context.SecurityContextHolderFilter@43165282, org.springframework.security.web.header.HeaderWriterFilter@2ef89e43, org.springframework.web.filter.CorsFilter@1ec690bd, org.springframework.security.web.csrf.CsrfFilter@79dd79eb, org.springframework.security.web.authentication.logout.LogoutFilter@3653bb61, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@4664cd32, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@693afcd1, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@4bdd6fe0, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@6e4d660, org.springframework.security.web.access.ExceptionTranslationFilter@ab5c335, org.springframework.security.web.access.intercept.AuthorizationFilter@2542e124]
+2024-05-08T15:08:53.547+04:00 DEBUG 3496 --- [    Test worker] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2024-05-08T15:08:53.632+04:00 DEBUG 3496 --- [    Test worker] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 0 @ExceptionHandler, 1 ResponseBodyAdvice
+2024-05-08T15:08:53.812+04:00  INFO 3496 --- [    Test worker] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2'. Database available at 'jdbc:h2:mem:umsDB'
+2024-05-08T15:08:54.035+04:00  INFO 3496 --- [    Test worker] ootSecurityFrameworkDemoApplicationTests : Started SpringBootSecurityFrameworkDemoApplicationTests in 9.159 seconds (process running for 11.352)
 Hibernate: 
     select
         u1_0.id,

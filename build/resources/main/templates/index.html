@@ -201,9 +201,10 @@
 </table>
 
 
-<div class="page-info">
-    <a th:href="@{/logout}">Logout</a>
-</div>
+<form action="/logout" method="post">
+    <input type="submit" value="Logout" style="background: none; border: none; padding: 0; margin: 0; text-decoration: underline; cursor: pointer; color: white;">
+</form>
+
 
 </body>
 </html>

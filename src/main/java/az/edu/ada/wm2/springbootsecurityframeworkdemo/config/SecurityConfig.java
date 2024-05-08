@@ -43,6 +43,8 @@ public class SecurityConfig {
                 .logout(logoutConfigurer -> logoutConfigurer
                         .logoutUrl("/logout")
                         .logoutSuccessUrl("/login?logout")
+                        .invalidateHttpSession(true)
+                        .deleteCookies("JSESSIONID")
                         .permitAll())
                 .exceptionHandling(exceptions -> exceptions
                         .accessDeniedHandler((request, response, accessDeniedException) ->
