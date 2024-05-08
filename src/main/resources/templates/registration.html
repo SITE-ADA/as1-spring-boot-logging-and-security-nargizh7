@@ -107,11 +107,6 @@
         <input type="email" id="email" name="email" th:field="*{email}" required>
         <p th:if="${#fields.hasErrors('email')}" th:errors="*{email}">Email Error</p>
     </div>
-    <form th:action="@{/registration}" method="post" th:object="${signupDto}">
-        <!-- form fields -->
-        <input type="submit" value="Sign Up">
-    </form>
-
 </form>
 <a href="/login">Already registered? Log in here</a>
 </body>

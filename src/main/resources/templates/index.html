@@ -99,6 +99,23 @@
             color: #f44336;
         }
 
+.action-link {
+    padding: 10px 20px;
+    margin-top: 20px;
+    background: linear-gradient(45deg, #00B0FF, #1DE9B6);
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background 0.3s ease;
+    border: none;
+    cursor: pointer;
+    font-size: 16px; /* Set font size for visibility */
+}
+
+.action-link:hover {
+    background: linear-gradient(45deg, #D500F9, #E040FB);
+}
+
         input[type="text"], select {
             width: 90%;
             padding: 8px;
@@ -146,6 +163,8 @@
 <body>
 <h2>Movies List</h2>
 <a th:href="@{/movie/new}" sec:authorize="hasRole('ADMIN')">ADD A NEW MOVIE</a>
+
+<br> </br>
 
 <form action="#" th:action="@{/movie/list}" method="get">
     <div>
@@ -200,10 +219,12 @@
     </tr>
 </table>
 
-<form th:action="@{/logout}" method="post">
-    <button type="submit">Logout</button>
-</form>
 
+    <a href="/login" th:href="@{/login}" >Login</a>
+    <a href="/registration" th:href="@{/registration}" >Register</a>
+    <form th:action="@{/logout}" method="post" style="display: inline;">
+        <button type="submit">Logout</button>
+    </form>
 
 </body>
 </html>
