@@ -9,6 +9,8 @@ version = '0.0.1-SNAPSHOT'
 
 java {
 	sourceCompatibility = '17'
+	withJavadocJar()
+	withSourcesJar()
 }
 
 configurations {
@@ -32,11 +34,24 @@ dependencies {
 	annotationProcessor 'org.projectlombok:lombok'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testImplementation 'org.springframework.security:spring-security-test'
-	runtimeOnly 'com.h2database:h2:1.4.200' // Corrected version
+	runtimeOnly 'com.h2database:h2:1.4.200' // Ensured the version of H2 database is correctly specified
 	runtimeOnly 'org.springframework.boot:spring-boot-starter-logging'
 }
 
-
 tasks.named('test') {
 	useJUnitPlatform()
+}
+
+tasks.withType(org.gradle.api.tasks.javadoc.Javadoc) {
+	source = sourceSets.main.allJava
+	classpath = configurations.compileClasspath
+	options {
+		author = true
+		version = true
+		links("https://docs.oracle.com/javase/8/docs/api/")
+	}
+	destinationDir = file("$buildDir/docs/javadoc")
+	doLast {
+		println("Javadoc generated in ${destinationDir.path}")
+	}
 }

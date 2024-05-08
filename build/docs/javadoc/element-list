@@ -1,0 +1,8 @@
+az.edu.ada.wm2.springbootsecurityframeworkdemo
+az.edu.ada.wm2.springbootsecurityframeworkdemo.config
+az.edu.ada.wm2.springbootsecurityframeworkdemo.controller
+az.edu.ada.wm2.springbootsecurityframeworkdemo.init
+az.edu.ada.wm2.springbootsecurityframeworkdemo.model.dto
+az.edu.ada.wm2.springbootsecurityframeworkdemo.model.entity
+az.edu.ada.wm2.springbootsecurityframeworkdemo.repo
+az.edu.ada.wm2.springbootsecurityframeworkdemo.service
