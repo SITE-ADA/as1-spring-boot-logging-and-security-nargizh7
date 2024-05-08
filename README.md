@@ -66,3 +66,8 @@ The application's source code is organized into several packages:
 
 #### Video Link
 - **link**: 
+
+#### Documentation
+The Javadoc documentation for this application is automatically generated during the build process using Gradle. To view the documentation:
+- Navigate to the `build/docs/javadoc` directory in the project folder.
+- Open the `index.html` file in a web browser.
