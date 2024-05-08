@@ -194,8 +194,8 @@
         <td th:text="${movie.country}"></td>
         <td th:text="${movie.wins}"></td>
         <td>
-            <a th:href="@{'/movie/update/' + ${movie.id}}">Update</a>
-            <a th:href="@{'/movie/delete/' + ${movie.id}}">Delete</a>
+            <a th:href="@{'/movie/update/' + ${movie.id}}"  sec:authorize="hasRole('ADMIN')">Update</a>
+            <a th:href="@{'/movie/delete/' + ${movie.id}}"  sec:authorize="hasRole('ADMIN')">Delete</a>
         </td>
     </tr>
 </table>
@@ -203,8 +203,6 @@
 <form th:action="@{/logout}" method="post">
     <button type="submit">Logout</button>
 </form>
-
-
 
 
 </body>
