@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="az.edu.ada.wm2.springbootsecurityframeworkdemo.config.SecurityConfigTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2024-05-07T09:21:43" hostname="DESKTOP-QO9DOES" time="0.005">
+<testsuite name="az.edu.ada.wm2.springbootsecurityframeworkdemo.config.SecurityConfigTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2024-05-08T08:35:05" hostname="DESKTOP-QO9DOES" time="0.002">
   <properties/>
-  <testcase name="filterChain()" classname="az.edu.ada.wm2.springbootsecurityframeworkdemo.config.SecurityConfigTest" time="0.002"/>
-  <testcase name="passwordEncoder()" classname="az.edu.ada.wm2.springbootsecurityframeworkdemo.config.SecurityConfigTest" time="0.001"/>
+  <testcase name="filterChain()" classname="az.edu.ada.wm2.springbootsecurityframeworkdemo.config.SecurityConfigTest" time="0.0"/>
+  <testcase name="passwordEncoder()" classname="az.edu.ada.wm2.springbootsecurityframeworkdemo.config.SecurityConfigTest" time="0.0"/>
   <testcase name="userDetailsService()" classname="az.edu.ada.wm2.springbootsecurityframeworkdemo.config.SecurityConfigTest" time="0.0"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>

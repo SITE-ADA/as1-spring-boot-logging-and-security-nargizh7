@@ -19,6 +19,16 @@ public class MovieController {
     @Autowired
     private MovieService movieService;
 
+    @GetMapping("/index")
+    public String getIndexPage(Model model,
+                               @RequestParam(name = "pageNo", defaultValue = "1") Integer pageNo,
+                               @RequestParam(name = "sortField", defaultValue = "name") String sortField,
+                               @RequestParam(name = "sortDir", defaultValue = "asc") String sortDir,
+                               @RequestParam(name = "filterField", defaultValue = "") String filterField,
+                               @RequestParam(name = "filterValue", defaultValue = "") String filterValue) {
+        return getMovies(model, pageNo, sortField, sortDir, filterField, filterValue);
+    }
+
     @GetMapping({"", "/", "/list"})
     public String getMovies(Model model,
                             @RequestParam(name = "pageNo", defaultValue = "1") Integer pageNo,

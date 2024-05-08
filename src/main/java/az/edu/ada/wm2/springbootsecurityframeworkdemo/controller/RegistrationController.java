@@ -38,8 +38,9 @@ public class RegistrationController {
         User user = new User(signupDto.getUsername(),
                 passwordEncoder.encode(signupDto.getPassword()),
                 signupDto.getEmail());
-        user.addRole("ROLE_USER");
+        user.addRole("ROLE_USER");  // Assign ROLE_USER to all new registrations
         userRepository.save(user);
         return "redirect:/login";
     }
+
 }

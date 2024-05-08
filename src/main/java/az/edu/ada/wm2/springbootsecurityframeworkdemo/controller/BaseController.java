@@ -2,6 +2,9 @@ package az.edu.ada.wm2.springbootsecurityframeworkdemo.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.security.authentication.AnonymousAuthenticationToken;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -18,10 +21,14 @@ public class BaseController {
     private String farewellMessage;
 
     @GetMapping("/")
-    public String getWelcomePage(Model model){
-        model.addAttribute("message", sanitize(welcomeMessage)); // Sanitize the message to prevent XSS
-        return "index";
+    public String getWelcomePage(Model model) {
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        if (auth instanceof AnonymousAuthenticationToken) {
+            return "redirect:/registration";  // Redirect to registration if not logged in
+        }
+        return "index";  // Show index if logged in
     }
+
 
     @GetMapping("/bye")
     public String getFarewellPage(Model model){

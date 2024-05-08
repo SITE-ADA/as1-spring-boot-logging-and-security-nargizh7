@@ -34,11 +34,11 @@ public class SecurityConfig {
         http
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers("/", "/registration", "/login", "/css/**", "/js/**").permitAll()
-                        .requestMatchers("/movie/**").hasRole("USER")
+                        .requestMatchers("/index", "/movie/**").hasRole("USER")  // Ensure /index requires ROLE_USER
                         .anyRequest().authenticated())
                 .formLogin(loginConfigurer -> loginConfigurer
                         .loginPage("/login")
-                        .defaultSuccessUrl("/movie/list", true)
+                        .defaultSuccessUrl("/index", true)  // Redirect to /index after successful login
                         .permitAll())
                 .logout(logoutConfigurer -> logoutConfigurer
                         .logoutUrl("/logout")
@@ -50,4 +50,5 @@ public class SecurityConfig {
 
         return http.build();
     }
+
 }
