@@ -33,7 +33,7 @@ The application's source code is organized into several packages:
 
 2. **Clone the Repository (if using Git)**:
    ```bash
-   git clone [https://github.com/your-username/SpringBootSecurityFrameworkDemo.git](https://github.com/SITE-ADA/as1-spring-boot-logging-and-security-nargizh7.git)
+   git clone https://github.com/your-username/SpringBootSecurityFrameworkDemo.git
    ```
 
 3. **Build the Project**:
