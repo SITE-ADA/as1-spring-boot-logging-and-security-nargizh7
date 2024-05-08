@@ -2,14 +2,16 @@ package az.edu.ada.wm2.springbootsecurityframeworkdemo.controller;
 
 import az.edu.ada.wm2.springbootsecurityframeworkdemo.model.dto.MovieDto;
 import az.edu.ada.wm2.springbootsecurityframeworkdemo.service.MovieService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-import jakarta.validation.Valid;
+
 import java.util.List;
 
 @Controller
@@ -49,12 +51,14 @@ public class MovieController {
     }
 
     @GetMapping("/new")
+    @PreAuthorize("hasRole('ADMIN')")
     public String createNewMovie(Model model) {
         model.addAttribute("movieDto", new MovieDto());
         return "new";
     }
 
     @PostMapping("/")
+    @PreAuthorize("hasRole('ADMIN')")
     public String save(@Valid @ModelAttribute("movieDto") MovieDto movieDto, BindingResult result, RedirectAttributes redirectAttributes) {
         if (result.hasErrors()) {
             redirectAttributes.addFlashAttribute("org.springframework.validation.BindingResult.movieDto", result);
@@ -66,12 +70,14 @@ public class MovieController {
     }
 
     @GetMapping("/delete/{id}")
+    @PreAuthorize("hasRole('ADMIN')")
     public String delete(@PathVariable Long id) {
         movieService.deleteById(id);
         return "redirect:/movie/";
     }
 
     @GetMapping("/update/{id}")
+    @PreAuthorize("hasRole('ADMIN')")
     public String showUpdateForm(@PathVariable Long id, Model model) {
         MovieDto movieDto = movieService.getDtoById(id);
         if (movieDto == null) {
@@ -82,6 +88,7 @@ public class MovieController {
     }
 
     @PostMapping("/update/{id}")
+    @PreAuthorize("hasRole('ADMIN')")
     public String updateMovie(@PathVariable Long id, @Valid @ModelAttribute("movieDto") MovieDto movieDto, BindingResult result, Model model) {
         if (result.hasErrors()) {
             model.addAttribute("movieDto", movieDto);
