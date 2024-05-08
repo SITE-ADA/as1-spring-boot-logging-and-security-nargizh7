@@ -3,16 +3,21 @@ package az.edu.ada.wm2.springbootsecurityframeworkdemo.service;
 import az.edu.ada.wm2.springbootsecurityframeworkdemo.model.dto.MovieDto;
 import az.edu.ada.wm2.springbootsecurityframeworkdemo.model.entity.Movie;
 import az.edu.ada.wm2.springbootsecurityframeworkdemo.repo.MovieRepository;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
+
 import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
 public class MovieServiceImpl implements MovieService {
+
+    private static final Logger logger = LoggerFactory.getLogger(MovieServiceImpl.class);
 
     private final MovieRepository movieRepo;
 

@@ -33,37 +33,42 @@ public class User implements UserDetails {
     @Column(unique = true, nullable = false)
     private String email;
 
-    private String roles; //ROLE_USER;ROLE_ADMIN -> persisted in DB
+    @Column(nullable = false)
+    private String roles = "ROLE_USER";  // Default role
 
     @Transient
-    private List<String> authorities = new ArrayList<>(Arrays.asList("ROLE_USER"));
+    private List<GrantedAuthority> authorities = new ArrayList<>();
 
     public List<GrantedAuthority> getAuthorities() {
-        return this.authorities.stream().map(
-                        role -> new SimpleGrantedAuthority(role))
-                .collect(Collectors.toList());
+        return authorities;
     }
 
     public User(String username, String password, String email) {
         this.username = username;
         this.password = password;
         this.email = email;
+        authorities.add(new SimpleGrantedAuthority("ROLE_USER"));  // Default role
     }
 
-    public User addRole(String authority) {
-        this.authorities.add(authority);
+    public User addRole(String role) {
+        if (!roles.contains(role)) {
+            roles += ";" + role;
+            authorities.add(new SimpleGrantedAuthority(role));
+        }
         return this;
     }
-
     @PrePersist
     @PreUpdate
     private void saveRoles() {
-        this.roles = String.join(";", this.authorities);
+        roles = authorities.stream()
+                .map(GrantedAuthority::getAuthority)
+                .collect(Collectors.joining(";"));
     }
 
     @PostLoad
     private void readRoles() {
-        this.authorities = Arrays.stream(this.roles.split(";"))
+        authorities = Arrays.asList(roles.split(";")).stream()
+                .map(SimpleGrantedAuthority::new)
                 .collect(Collectors.toList());
     }
 

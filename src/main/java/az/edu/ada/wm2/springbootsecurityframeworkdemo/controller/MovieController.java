@@ -3,6 +3,8 @@ package az.edu.ada.wm2.springbootsecurityframeworkdemo.controller;
 import az.edu.ada.wm2.springbootsecurityframeworkdemo.model.dto.MovieDto;
 import az.edu.ada.wm2.springbootsecurityframeworkdemo.service.MovieService;
 import jakarta.validation.Valid;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -18,6 +20,7 @@ import java.util.List;
 @RequestMapping("/movie")
 public class MovieController {
 
+    private static final Logger logger = LoggerFactory.getLogger(MovieController.class);
     @Autowired
     private MovieService movieService;
 
@@ -65,15 +68,25 @@ public class MovieController {
             redirectAttributes.addFlashAttribute("movieDto", movieDto);
             return "new";  // Redirect back to the form page with errors
         }
-        movieService.save(movieDto);
-        return "redirect:/movie/";
+        try {
+            movieService.save(movieDto);
+            return "redirect:/movie/";
+        } catch (Exception e) {
+            logger.error("Error saving movie: {}", movieDto.getName(), e);
+            return "errorPage";
+        }
     }
 
     @GetMapping("/delete/{id}")
     @PreAuthorize("hasRole('ADMIN')")
     public String delete(@PathVariable Long id) {
-        movieService.deleteById(id);
-        return "redirect:/movie/";
+        try {
+            movieService.deleteById(id);
+            return "redirect:/movie/";
+        } catch (Exception e) {
+            logger.error("Error deleting movie with ID: {}", id, e);
+            return "errorPage";
+        }
     }
 
     @GetMapping("/update/{id}")

@@ -20,4 +20,9 @@
     </annotationProcessing>
     <bytecodeTargetLevel target="17" />
   </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="az.edu.ada.wm2.spring-boot-security-framework-demo.main" options="--add-exports java.desktop/sun.font=ALL-UNNAMED" />
+    </option>
+  </component>
 </project>

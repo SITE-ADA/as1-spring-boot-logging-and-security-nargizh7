@@ -1,5 +1,6 @@
 package az.edu.ada.wm2.springbootsecurityframeworkdemo.controller;
 
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.security.authentication.AnonymousAuthenticationToken;
@@ -9,9 +10,16 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
+import org.slf4j.Logger;
+
 @Controller
 public class BaseController {
 
+    private static final Logger logger = LoggerFactory.getLogger(BaseController.class);
+
+    protected void logInfo(String message) {
+        logger.info(message);
+    }
     @Autowired
     @Qualifier("greetText")
     private String welcomeMessage;

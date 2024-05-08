@@ -6,7 +6,7 @@ import org.springframework.data.domain.Page;
 import java.util.List;
 
 public interface MovieService {
-    Page<MovieDto> listDto(int pageNo, String sortField, String sortDir, String filterField, String filterValue);
+     Page<MovieDto> listDto(int pageNo, String sortField, String sortDir, String filterField, String filterValue);
     MovieDto save(MovieDto movieDto);
     MovieDto getById(Long id);
     void deleteById(Long id);
